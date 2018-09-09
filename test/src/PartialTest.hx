@@ -3,16 +3,16 @@ package;
 import massive.munit.Assert;
 import react.Partial;
 
-typedef ABCD = {
+private typedef ABCD = {
 	a:String,
 	b:String,
 	c:FromString,
 	d:FromIntWithFunction
 }
 
-abstract FromString(Dynamic) from String {}
+private abstract FromString(Dynamic) from String {}
 
-abstract FromIntWithFunction(String) {
+private abstract FromIntWithFunction(String) {
 	@:from
 	static public function fromInt(i:Int)
 	{
@@ -33,22 +33,6 @@ class PartialTest
 		};
 
 		Assert.areEqual(test.a, "a");
-	}
-
-	@Test
-	public function fields_keep_their_type()
-	{
-		AssertTools.assertCompilationFails({
-			var test:Partial<ABCD> = {a: 42};
-		});
-	}
-
-	@Test
-	public function cannot_add_extra_fields()
-	{
-		AssertTools.assertCompilationFails({
-			var test:Partial<ABCD> = {a: "42", e: "test"};
-		});
 	}
 
 	@Test
