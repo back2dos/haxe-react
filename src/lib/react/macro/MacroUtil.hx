@@ -136,7 +136,7 @@ class MacroUtil {
 		};
 	}
 
-	static public function functionToType(fun:haxe.macro.Function):Type
+	static public function functionToType(fun:Function):Type
 	{
 		return TFun(fun.args.map(funArgToTFunArg), ComplexTypeTools.toType(fun.ret));
 	}
