@@ -139,7 +139,7 @@ abstract ReactTypeOf<TProps>(ReactType) to ReactType {
 		return new ReactTypeOf(cls);
 	}
 
-	#if coconut_react_core
+	#if (coconut_react_core && !macro)
 	public function fromHxx(hxxMeta:{ ?key:coconut.react.Key }, props:TProps):ReactElement
 	{
 		return React.createElement(this, js.Object.assign(cast props, hxxMeta));
